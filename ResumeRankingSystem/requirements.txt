@@ -1,0 +1,8 @@
+azureopenai
+openai
+flask
+pypdf2
+python-docx
+flask_cors
+langchain
+langchain-openai

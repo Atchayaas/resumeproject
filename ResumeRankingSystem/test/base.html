@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AI Resume Analyzer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .loader {
+            display: none;
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="AI Resume Analyzer Logo" class="logo">
+            <h1>AI Resume Analyzer</h1>
+            <p>Upload your resumes and let AI do the magic!</p>
+        </header>
+
+        <main>
+            <label for="file-upload" class="custom-file-upload">
+                <input type="file" id="file-upload" name="files" multiple required>
+                Choose Files
+            </label>
+            <button type="submit" class="scan-btn" onclick="handleFormSubmission(event)">Scan</button>
+            <!-- Display selected file names -->
+            <div id="file-list" style="margin-top: 10px;"></div>
+
+            <!-- Loading spinner -->
+            <div class="loader" id="loader"></div>
+
+            <!-- Result section -->
+            <div id="result" style="margin-top: 20px; display: none;">
+                <h2>Scan Result</h2>
+                <table id="resultTable" border="1" cellspacing="0" cellpadding="10">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Rank</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </main>
+
+        <footer></footer>
+    </div>
+
+    <script>
+        // const form = document.getElementById('uploadForm');
+        const loader = document.getElementById('loader');
+        const fileUpload = document.getElementById('file-upload');
+        const fileList = document.getElementById('file-list');
+
+        // Display selected file names
+        fileUpload.addEventListener('change', () => {
+            fileList.innerHTML = '';
+            Array.from(fileUpload.files).forEach(file => {
+                const fileItem = document.createElement('p');
+                fileItem.textContent = `📄 ${file.name}`;
+                fileList.appendChild(fileItem);
+            });
+        });
+
+        // Normal function to handle form submission
+        function handleFormSubmission(event) {
+            event.preventDefault();
+            const loader = document.getElementById('loader');
+            const fileUpload = document.getElementById('file-upload');
+            const formData = new FormData();
+
+            // Add files to FormData
+            Array.from(fileUpload.files).forEach(file => {
+                formData.append('files', file);
+            });
+
+            loader.style.display = 'block';
+
+            fetch('http://127.0.0.1:5000/upload', {
+            method: 'POST',
+            body: formData
+            })
+            .then(uploadResponse => {
+                if (!uploadResponse.ok) {
+                    throw new Error(`Upload Error: ${uploadResponse.status}`);
+                }
+                return uploadResponse.json(); // Parse JSON properly
+            })
+            .then(data => {
+                console.log(data);
+                displayResult(data); // Call displayResult only after parsing
+                loader.style.display = 'none'; // Hide loader after displaying results
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                loader.style.display = 'none'; // Ensure loader hides on error
+            });
+
+}
+
+
+// Function to display the result
+function displayResult(data) {
+    const resultDiv = document.getElementById('result');
+    const resultTable = document.getElementById('resultTable').querySelector('tbody');
+
+    // Clear previous results
+    resultTable.innerHTML = '';
+
+    // Populate the table with new results
+    data.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.Category}</td>
+            <td>${item.Name}</td>
+            <td>${item.Position}</td>
+            <td>${item.Rank}</td>
+        `;
+        resultTable.appendChild(row);
+    });
+
+    // Show the result section
+    resultDiv.style.display = 'block';
+}
+
+    </script>
+</body>
+
+</html>

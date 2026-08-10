@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AI Resume Analyzer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Background Logo */
+        .background-logo {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .background-logo img {
+            width: 1600px;
+        }
+
+        /* Container */
+        .container {
+            text-align: center;
+            max-width: 700px;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            background: rgba(20, 20, 40, 0.9);
+        }
+
+        /* Header */
+        header .logo {
+            width: 250px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* File Upload */
+        .custom-file-upload {
+            display: inline-block;
+            padding: 12px 20px;
+            border: 2px dashed #c0c0cd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.1s;
+        }
+
+        .custom-file-upload:hover {
+            background: rgba(79, 70, 229, 0.2);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        /* Scan Button */
+        .scan-btn {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #4f46e5;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .scan-btn:hover {
+            background: #4338ca;
+        }
+
+        /* Table Styles */
+        .hidden {
+            display: none;
+        }
+
+        #resultTable {
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #4f46e5;
+        }
+
+        table th {
+            background-color: #4f46e5;
+        }
+
+        table tr:hover {
+            background-color: rgba(79, 70, 229, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        .loader {
+            display: none;
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="AI Resume Analyzer Logo" class="logo">
+            <h1>AI Resume Analyzer</h1>
+            <p>Upload your resumes and let AI do the magic!</p>
+        </header>
+
+        <main>
+            <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            
+            <label for="file-upload" class="custom-file-upload">
+                <input type="file" id="file-upload" name="files" multiple required>
+                Choose Files
+            </label>
+            <button type="submit" class="scan-btn" >Scan</button>
+
+        </form>
+            <!-- Display selected file names -->
+            <div id="file-list" style="margin-top: 10px;"></div>
+
+            <!-- Loading spinner -->
+            <div class="loader" id="loader"></div>
+
+            <!-- Result section -->
+           
+        </main>
+
+        <footer></footer>
+    </div>
+
+    <script>
+        // const form = document.getElementById('uploadForm');
+        const loader = document.getElementById('loader');
+        const fileUpload = document.getElementById('file-upload');
+        const fileList = document.getElementById('file-list');
+
+        // Display selected file names
+        fileUpload.addEventListener('change', () => {
+            fileList.innerHTML = '';
+            Array.from(fileUpload.files).forEach(file => {
+                const fileItem = document.createElement('p');
+                fileItem.textContent = `📄 ${file.name}`;
+                fileList.appendChild(fileItem);
+            });
+        });
+
+//         // Normal function to handle form submission
+//         function handleFormSubmission(event) {
+//             event.preventDefault();
+//             const loader = document.getElementById('loader');
+//             const fileUpload = document.getElementById('file-upload');
+//             const formData = new FormData();
+
+//             // Add files to FormData
+//             Array.from(fileUpload.files).forEach(file => {
+//                 formData.append('files', file);
+//             });
+
+//             loader.style.display = 'block';
+
+//             fetch('http://127.0.0.1:5000/upload', {
+//             method: 'POST',
+//             body: formData
+//             })
+//             .then(uploadResponse => {
+//                 if (!uploadResponse.ok) {
+//                     throw new Error(`Upload Error: ${uploadResponse.status}`);
+//                 }
+//                 return uploadResponse.json(); // Parse JSON properly
+//             })
+//             .then(data => {
+//                 console.log(data);
+//                 displayResult(data); // Call displayResult only after parsing
+//                 loader.style.display = 'none'; // Hide loader after displaying results
+//             })
+//             .catch(error => {
+//                 console.error('Error:', error);
+//                 loader.style.display = 'none'; // Ensure loader hides on error
+//             });
+
+// }
+
+
+// // Function to display the result
+// function displayResult(data) {
+//     const resultDiv = document.getElementById('result');
+//     const resultTable = document.getElementById('resultTable').querySelector('tbody');
+
+//     // Clear previous results
+//     resultTable.innerHTML = '';
+
+//     // Populate the table with new results
+//     data.forEach(item => {
+//         const row = document.createElement('tr');
+//         row.innerHTML = `
+//             <td>${item.Category}</td>
+//             <td>${item.Name}</td>
+//             <td>${item.Position}</td>
+//             <td>${item.Rank}</td>
+//         `;
+//         resultTable.appendChild(row);
+//     });
+
+//     // Show the result section
+//     resultDiv.style.display = 'block';
+// }
+
+    </script>
+</body>
+
+</html>

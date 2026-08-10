@@ -1,0 +1,14 @@
+Insurance Schema
+I hope you will be aware of usage-based insurance schema. In general, we would pay the insurance scheme per month or year for our car and bikes. Similarly, let’s see there are 2 drivers who drive per month if one driver drives 1000 miles per month, another one 500miles per month but both would pay similar insurance. To avoid this discrepancy, we would collect the telematics device which was attached in every truck. 
+
+Here is the process of the project.
+ 
+ 
+Process:
+We would upload the data into s3 bucket via API using python. Once uploaded. Lambda would be triggered and initiate Glue job.
+AWS Glue will help us with this process. The necessary preprocessing steps such as removing duplicates and removing null values would be performed here.
+In AWS Glue itself we will calculate the features involved in driver score calculation such as hard accelerations, hard braking, harsh weather conditions, speed violations and so on. Based on the weighted average formula driver score will be calculated and additionally the clustering model would also be deployed here ie based on 5-6 months of data we would have trained our model, and the clustering model would have learnt to identify patterns in the data and this model would be deployed in Glue jobs itself. Hence, for a particular date we would know the driver score for a driver as well as his label based on clustering.
+Now this data would be made available in RDS MySQL database. In the database we would have driver id, company id, all features that we have calculated, driver scores and labels for a particular driver.
+This data could be accessed via both Fast API and PowerBI dashboards.
+This is just a quick brief about aws structure.
+

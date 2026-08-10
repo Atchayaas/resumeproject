@@ -1,0 +1,124 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Background Logo */
+.background-logo {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.background-logo img {
+    width: 1600px;
+}
+
+/* Container */
+.container {
+    text-align: center;
+    max-width: 700px;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    background: rgba(20, 20, 40, 0.9);
+}
+
+/* Header */
+header .logo {
+    width: 250px;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* File Upload */
+.custom-file-upload {
+    display: inline-block;
+    padding: 12px 20px;
+    border: 2px dashed #c0c0cd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.custom-file-upload:hover {
+    background: rgba(79, 70, 229, 0.2);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* Scan Button */
+.scan-btn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #4f46e5;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.scan-btn:hover {
+    background: #4338ca;
+}
+
+/* Table Styles */
+.hidden {
+    display: none;
+}
+
+#resultTable {
+    margin-top: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #4f46e5;
+}
+
+table th {
+    background-color: #4f46e5;
+}
+
+table tr:hover {
+    background-color: rgba(79, 70, 229, 0.2);
+}
+
+/* Footer */
+footer {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}

@@ -1,0 +1,176 @@
+RAJA PANDI G R  
+DATA ENGINEER  
++91 99420 90134  
+rajapandi2108@gmail.com  
+PROFESSIONAL SUMMARY  
+ 
+Results -oriented Data Engineer with 2.1 1 years of experience having a strong background Data Engineering 
+tools in Python, SQL, Scala, and Hadoop ecosystem technologies. Skilled in data storage and processing 
+using Azure, Apache Spark, Hive, and PySpark. Demonstrated success in managing and analy sing large 
+datasets, optimizing ETL processes, and delivering valuable insights to drive business decision -making. 
+Proactive collaborator with excellent problem -solving abilities, seeking an opportunity to leverage skills 
+and contribute to a reputed organi zation's data  driven success.  
+ 
+SKILLS & ABILITIES  
+ 
+• Big Data:  Hadoop, Apache Spark, Hive, Apache Sqoop  
+• Database : MySQL, PostgreSQL . Azure SQL DB  
+• Language:  Python, SQL, PySpark  
+• Cloud : Snowflake,  Azure Cloud, Azure Data Factory, ADLS Gen 2, AWS S3, AWS Athena, AWS 
+Glue, AWS Lambda, Databricks , Synapse Analytics  
+• Operating System:  Windows, Linux  
+• Other Tools:  MS Office, IDE Eclipse, GitHub, Cloudera CDH, MS SQL Server, PyCharm  
+EXPERIENCE  
+ 
+ 
+Oct 2023 – till date, Optisol Business Solutions, Madurai  
+Role – Data Engineer  
+Dec 2021 – Oct 2023, Wipro Limited, Chennai  
+Role – Senior Analyst  
+June 2021 – Dec 2021, Wipro Limited, Chennai  
+Role – Intern  
+EDUCATION  
+ 
+Thiagarajar  College of Engineering , Madurai  
+• B.E(Computer Science and Engineering)  
+• 2018 – 2021  
+• CGPA – 7.71 
+ 
+Tamil Nadu Polytechnic College, Madurai  
+• Diploma(Computer Engineering)  
+• 2015 – 2018  
+• Percentage – 95.75  
+ 
+PROJECTS  
+ 
+PROJECT NAME: AYM Commerce Data Migration (E-Commerce)  
+TECHNOLOGIES USED: PostgreSQL, Azure Cloud, Azure Data Factory, Confluence  
+Environment: A zure Cloud  
+Roles and Responsibilities:  
+• Currently engaged in a data migration endeavor, transitioning data from a Version 1 application to 
+a Version 2 application.  
+• Established a pipeline that effectively migrates data from AWS Postgres to Azure Postgres and am 
+presently focused on mapping columns in each table. Additionally, Developed a Python script to 
+validate the entirety of the data migration process, ensuring it s success.  
+• Documenting the data requirements from the perspective of front -end developers, detailing how 
+data should be stored in the backend system.  
+ 
+PROJECT NAME: VERSAND DATA  
+TECHNOLOGIES USED: AWS Glue, Lambda, S3, Snowflake  
+Environment: AWS Cloud  
+Roles and Responsibilities:  
+• Proficient in seamlessly ingesting records via SFTP into S3, with automatic Lambda triggering 
+upon file arrival.  
+• Skilled in orchestrating comprehensive data transformations within Glue, converting unstructured 
+data to structured formats before storing the processed files back in designated S3 folders.  
+• Experienced in utilizing SQS for efficient data transfer from S3 to Snowflake, managing staging 
+and actual table loading through Snowpipe integration.  
+ 
+PROJECT NAME: CINTAS HEALTH CARE (HealthCare)  
+TECHNOLOGIES USED: Azure Data Factory, PySpark, ADLS, SQLDB  
+Environment: Azure Cloud  
+Roles and Responsibilities:  
+• Proficient in extracting data from diverse file formats from a shared location and ingesting it into 
+the Blob Storage. Utilized Azure Data Factory to build a successful pipeline to process the data.  
+• Designed and implemented 3 -tier SQL DB table tables for efficient querying and processing of data 
+residing in Blob Storage.  
+• Leveraged PySpark code and data flow to update and transform the data, eliminating erroneous 
+records and removing unwanted columns, ensuring high -quality data for storage in the final SQL 
+DB table.  
+ 
+ 
+ 
+ 
+CERTIFICATIONS  
+ 
+ 
+ 
+• Databricks Lakehouse Fundamentals Certification(Completion Date – 8-Apr-2024)  
+• TrendyTech Big Data Master’s Program(Completion Date – 17-Aug-2023)  
+• IBM Data Engineering Professional Certificate provided by IBM from Coursera.  
+• (Completion Date –21-Jan-2023)  
+• Google Data Analytics Professional Certificate provided by Google from Coursera.  
+(Completion Date –17-Aug-2022 ) 
+ 
+
+Jeevankumar O MH+91- 9842924330
+Bjeevanom306@gmail.com
+Experienced professional with over 2.11years of expertise in Data Engineering and Software Engineer. Proficient
+in constructing intricate data pipelines and executing business requirements utilizing cutting-edge data tools.
+Education
+2016–2019 Madurai kamarajar university, Madurai ,BSC(CS) .
+Technical Skills
+Python,Pyspark,Databricks,Mysql,Django,Flask,FastAPI,Playwright,Github, Kafka,AWS,LLM,
+OpenAI
+Work Experience
+Aug 2022 –
+OngoingData Engineer ,Optisol business solutions , Madurai.
+{Built complex data pipelines and implemented business need using the latest data tools such as AWS
+Glue, S3, Event bridge, Lambda, SNS
+{Proficient in writing codes in SQL and Pyspark
+{Experience in performing change data capture without the use of any third-party tools
+{Expertise in performing data migration with ease irrespective of their size.
+{Developed large dataset transformation using AWS databricks
+Jan 2021 –
+Aug 2022Software Engineer ,Profizio IT solutions , Madurai.
+{Independently managed a web application aligned with business requirements.
+{Client interaction and gather requirements and present ideas
+{Enabled seamless workflow automation by setting up a robust CI/CD pipeline using GitHub Actions and
+Docker.
+{Utilized the Django web framework to craft several REST APIs.
+{Deployed the software application into AWS EC2 instance.
+{Developed comprehensive unit test cases using the pytest module.
+Projects
+Feb 2023–
+OngoingCogoInsurance .
+Cogo Insurance is a Usage Based Insurance provider in the USA predominantly catering to trucks and
+heavy vehicles. Our objective is to identify driver’s behavior based on telematics data and assign insurance
+premium based on that driver’s behavior.
+{Derived features such as hard acceleration, hard braking and hard cornerings to identify driving behavior.
+{Used 3rd party API’s such as WeatherAPI to determine if a driver is driving in harsh weather conditions
+{Built a driver score calculation formula based on weighted average method using the derived features.
+{Setup a pipeline using AWS Glue to process the daily telematics data for around 20000 drivers and
+automatically calculate the driver score for those drivers and these driver score would be stored in AWS
+RDS MySQL database.
+{Built a FastAPI to fetch the driver scores based on driver ids from the AWS RDS database.
+1/2
+Sep 2022–
+Jan 2023Neutrian .
+The data lake is designed to store landed core data from the source system and the environment for data
+aggregation and correlation. The solution’s main goal is to improve performance and efficiency of change
+data capture implementation
+{Involved with the data Extraction, aggregations, and consolidation of sales data within databricks using
+PySpark.
+{Designed and developed ETL Processes in Pyspark to migrate Campaign data from external sources
+like PostgreSQL into databricks Delta table.
+{Designed and implemented a real-time data pipeline to process semi-structured data by integrating 150
+million raw records from various data sources using Spark.
+Jan 2022– Jul
+2022H-BOT.
+H-Bot version-1 collects, segregates, validates, and highlights the output in PDF without human
+intervention. This is the art of technology-driven services. It facilitates employers to engage their
+manpower’s precious person-hours in productive/optimum utilization.
+{Multiple PDF files will be integrated into the MySQL server and subsequently stored in an S3 bucket.
+{Extracted and integrated multiple EPF and ESI PDF files from the S3 cloud storage.
+{Employed the PYMUPDF library for efficient processing of PDF files, leveraging its impressive perfor-
+mance and superior rendering quality.
+{Utilized Django’s API to facilitate interaction with this model through a RESTful API, while Angular
+was employed to develop the chat window.
+Jan 2021–
+Jun 2022C-QUBE .
+C-QUBE compliance check-version 1–cloud-based application is in line with the statutory applicability
+track, collects documents, validates, highlights, rectifies, and finally certifies the contractor’s compliance
+month on month with less human effort. This is the edge of the technology- driven solution.
+{Constructed PDF and Excel files for each uploaded contractor.
+{Integrated Excel and PDF data, utilizing a Django REST API to validate against specific conditions
+and stored in Mysql
+{Implemented a middleware using JWT tokens to enhance user login authentication.
+{Created an administrative panel and dashboard using Django and Django Rest Framework.
+{Successfully deployed the web application on an AWS EC2 instance and established a CI/CD pipeline.
+Achievements
+Oct 2023 AWS Solution Architect - Associate .
+Jan 2023 Dataricks Lakehouse Fundamental Certified .
+Jul-2022 Hacker Rank Certified Python basics ,Attained a 96 percentage proficiency in problem-solving
+using Python on the HackerRank platform. .
+2/2
+

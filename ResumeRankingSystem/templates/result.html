@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AI Resume Analyzer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 700px;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            background: rgba(20, 20, 40, 0.9);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .scan-btn {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #4f46e5;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .scan-btn:hover {
+            background: #4338ca;
+        }
+
+        #result {
+            margin-top: 30px;
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #4f46e5;
+        }
+
+        table th {
+            background-color: #4f46e5;
+        }
+
+        table tr:hover {
+            background-color: rgba(79, 70, 229, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="AI Resume Analyzer Logo" class="logo" width="250">
+            <h1>AI-Powered Resume Ranking System</h1>
+            
+        </header>
+
+        <main>
+
+            <div id="result" {% if results %}style="display:block;"{% endif %}>
+                
+                <table id="resultTable">
+                    <thead>
+                        <tr>
+                            <th>FileName</th>
+                            <th>Category</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Rank</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in results %}
+                            <tr>
+                                <td>{{ result.FileName }}</td>
+                                <td>{{ result.Category }}</td>
+                                <td>{{ result.Name }}</td>
+                                <td>{{ result.Position }}</td>
+                                <td>{{ result.Rank }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <footer></footer>
+    </div>
+</body>
+
+</html>
